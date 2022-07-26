@@ -6,7 +6,7 @@
 Name:          cjs
 Epoch:         1
 Version:       5.4.1
-Release:       1
+Release:       2
 Summary:       Javascript Bindings for Cinnamon
 
 License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
@@ -78,7 +78,7 @@ the functionality of the installed cjs package.
 
 
 %check
-%ifnarch s390 s390x
+%ifnarch s390 s390x aarch64
 xvfb-run -a /usr/bin/meson test -C %{_vpath_builddir} \
  --num-processes %{_smp_build_ncpus} --print-errorlogs
 %endif
@@ -108,5 +108,8 @@ xvfb-run -a /usr/bin/meson test -C %{_vpath_builddir} \
 
 
 %changelog
+* Mon Jul 25 2022 Wenlong Ding <wenlong.ding@turbolinux.com.cn> - 1:5.4.1-2
+- Change spec file to disable check in aarch64
+
 * Thu Jul 21 2022 Wenlong Ding <wenlong.ding@turbolinux.com.cn> - 1:5.4.1-1
 - Initial Packaging
